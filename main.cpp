@@ -18,6 +18,7 @@
 
 #include <iostream>
 #include <iomanip>
+#include <cmath>
 using namespace std;
 
 int main()
@@ -26,21 +27,27 @@ int main()
     const double RATE6  = 2.20;
     const double RATE10 = 3.70;
     const double RATE20 = 4.80;
-    double weight, distance, dRate, price;
+    double weight, distance, rate, price;
 
-    cout << "Enter the package weight and distance\n";
-    cin >> weight >> distance;
+    
+    if(!(cin >> weight >> distance)) return 0;
 
     // TODO: validate input - weight must be > 0 and <= 20
-
+if (weight <= 0 || weight > 20 || distance < 10 || distance > 3000){return 0;}
     // TODO: validate input - distance must be >= 10 and <= 3000
 
     // TODO: determine rate based on weight
-
+if (weight <= 2)
+{rate = RATE2;}
+else if(weight <= 6)
+{rate = RATE6;}
+else if(weight <= 10)
+{rate = RATE10;}
+else{rate = RATE20;}
     // TODO: calculate price based on distance
-
+price = ceil(distance / 500.0) * rate;
     // Use the following statements to print output
-    cout << setprecision(2) << fixed;
+    cout << fixed << setprecision(2);
     cout << "The shipping price for package is " << price << endl;
 
     return 0;
