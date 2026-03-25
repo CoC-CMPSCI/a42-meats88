@@ -15,8 +15,7 @@ int main()
     cout << "Enter the package weight and distance\n";
     
    
-    if (cin >> weight >> distance) {
-        
+   cin >> weight >> distance;
         
         if (weight > 0 && weight <= 20 && distance >= 10 && distance <= 3000) {
             
@@ -43,6 +42,3 @@ int main()
             cout << "The shipping price for package is " << price << endl;
         }
     }
-
-    return 0;
-}
